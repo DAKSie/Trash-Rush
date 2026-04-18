@@ -1,0 +1,6 @@
+*.exe
+*.dsym
+main
+bin/*
+!bin/.gitkeep
+

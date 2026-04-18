@@ -1,0 +1,1 @@
+Unzip Trash Rush.zip and run Trash Rush!
