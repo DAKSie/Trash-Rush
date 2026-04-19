@@ -27,6 +27,8 @@ $arguments += @(
     '-o',
     $output,
     '-std=c++14',
+    '-static-libstdc++',
+    '-static-libgcc',
     '-I',
     $includeDir,
     '-L',
@@ -52,6 +54,8 @@ if ($LASTEXITCODE -ne 0) {
 Copy-Item -LiteralPath (Join-Path $runtimeSource 'libraylib.dll') -Destination $binDir -Force
 Copy-Item -LiteralPath (Join-Path $runtimeSource 'glfw3.dll') -Destination $binDir -Force
 Copy-Item -LiteralPath (Join-Path $runtimeSource 'libgcc_s_seh-1.dll') -Destination $binDir -Force
-Copy-Item -LiteralPath (Join-Path $runtimeSource 'libstdc++-6.dll') -Destination $binDir -Force
+if (Test-Path -LiteralPath (Join-Path $runtimeSource 'libwinpthread-1.dll')) {
+    Copy-Item -LiteralPath (Join-Path $runtimeSource 'libwinpthread-1.dll') -Destination $binDir -Force
+}
 Copy-Item -LiteralPath (Join-Path $root 'assets') -Destination $binDir -Recurse -Force
 Copy-Item -LiteralPath (Join-Path $root 'Score.txt') -Destination (Join-Path $binDir 'Score.txt') -Force

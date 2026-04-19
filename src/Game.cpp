@@ -8,25 +8,25 @@
 #include <string>
 
 namespace {
-constexpr Color COLOR_2F2FE4{47, 47, 228, 255};
-constexpr Color COLOR_162E93{22, 46, 147, 255};
-constexpr Color COLOR_1A1953{26, 25, 83, 255};
-constexpr Color COLOR_080616{8, 6, 22, 255};
-constexpr std::array<FlameAttackPattern, 4> FLAME_ATTACK_PATTERN_ORDER = {
-    FlameAttackPattern::Direct,
-    FlameAttackPattern::Lead,
-    FlameAttackPattern::Flank,
-    FlameAttackPattern::Lead
-};
+    constexpr Color COLOR_2F2FE4{47, 47, 228, 255};
+    constexpr Color COLOR_162E93{22, 46, 147, 255};
+    constexpr Color COLOR_1A1953{26, 25, 83, 255};
+    constexpr Color COLOR_080616{8, 6, 22, 255};
+    constexpr std::array<FlameAttackPattern, 4> FLAME_ATTACK_PATTERN_ORDER = {
+        FlameAttackPattern::Direct,
+        FlameAttackPattern::Lead,
+        FlameAttackPattern::Flank,
+        FlameAttackPattern::Lead
+    };
 
-Vector2 CenteredTextPosition(const Font& font, const std::string& text, float fontSize, float spacing, float y, float containerWidth) {
-    Vector2 textSize = MeasureTextEx(font, text.c_str(), fontSize, spacing);
-    return { (containerWidth - textSize.x) * 0.5f, y };
-}
+    Vector2 CenteredTextPosition(const Font& font, const std::string& text, float fontSize, float spacing, float y, float containerWidth) {
+        Vector2 textSize = MeasureTextEx(font, text.c_str(), fontSize, spacing);
+        return { (containerWidth - textSize.x) * 0.5f, y };
+    }
 
-void DrawCenteredText(const Font& font, const std::string& text, float fontSize, float spacing, float y, float containerWidth, Color color) {
-    DrawTextEx(font, text.c_str(), CenteredTextPosition(font, text, fontSize, spacing, y, containerWidth), fontSize, spacing, color);
-}
+    void DrawCenteredText(const Font& font, const std::string& text, float fontSize, float spacing, float y, float containerWidth, Color color) {
+        DrawTextEx(font, text.c_str(), CenteredTextPosition(font, text, fontSize, spacing, y, containerWidth), fontSize, spacing, color);
+    }
 }
 
 Game::Game()
